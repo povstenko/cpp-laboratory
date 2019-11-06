@@ -18,7 +18,7 @@ using namespace std;
 int main()
 {
 	string line, text;
-	list<string> sentences;
+	string sentences[3] = {};
 	ifstream file("file.dat");
 
 	// read from file to text
@@ -30,10 +30,10 @@ int main()
 	char *s = new char[text.size() + 1];
 	strcpy(s, text.c_str());
 	char *p = strtok(s, ".");
-	while(p != NULL)
+	for(int i = 0; p != NULL; i++)
 	{
 		string el(p);
-		sentences.push_back(el);
+		sentences[i] = el;
 		p = strtok(NULL, ".");
 	}
 
@@ -42,24 +42,38 @@ int main()
 		cout << sentence << endl;
 
 	char c;
+	unsigned short int cntr = 2; // containes 2, 1, 3
 
-	for(int i = 0; c != '.'; i++)
+	while(c != '.')
 	{
 		cin >> c;
 		system("clear");
-	
-		if(i%1 == 0){cout << ">";}
-		cout  << next(sentences.begin, 0) << endl;
 
-		if(i%2 == 0){cout << ">";}
-		cout  << next(sentences.begin, 1) << endl;
+		if(cntr == 1)
+		{
+			cout << ">" << sentences[0] << endl;
+			cout << sentences[1] << endl;
+			cout << sentences[2] << endl;
 
-		if(i%3 == 0){cout << ">";}
-		cout  << next(sentences.begin, 2) << endl;
+			cntr = 3;
+		}
+		else if(cntr == 2)
+		{
+			cout << sentences[0] << endl;
+			cout << ">" << sentences[1] << endl;
+			cout << sentences[2] << endl;
+
+			cntr = 1;
+		}
+		else if(cntr == 3)
+		{
+			cout << sentences[0] << endl;
+			cout << sentences[1] << endl;
+			cout << ">" << sentences[2] << endl;
+
+			cntr = 2;
+		}
 	}
-	
-
-
 
 	return 0;
 }
