@@ -44,35 +44,25 @@ int main()
 	char c;
 	unsigned short int cntr = 2; // containes 2, 1, 3
 
+	short order[] = {2, 1, 3};
+	short order_index = 0;
+
 	while(c != '.')
 	{
 		cin >> c;
 		system("clear");
 
-		if(cntr == 1)
-		{
-			cout << ">" << sentences[0] << endl;
-			cout << sentences[1] << endl;
-			cout << sentences[2] << endl;
+		order_index++;
 
-			cntr = 3;
-		}
-		else if(cntr == 2)
-		{
-			cout << sentences[0] << endl;
-			cout << ">" << sentences[1] << endl;
-			cout << sentences[2] << endl;
+		if(order_index > 2) order_index = 0;
 
-			cntr = 1;
+		short selected_index = order[order_index] - 1;
+		for(int i = 0; i < 3; i++){
+			if(i == selected_index)
+				cout << ">";
+			cout << sentences[i] << endl;
 		}
-		else if(cntr == 3)
-		{
-			cout << sentences[0] << endl;
-			cout << sentences[1] << endl;
-			cout << ">" << sentences[2] << endl;
 
-			cntr = 2;
-		}
 	}
 
 	return 0;
