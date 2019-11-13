@@ -6,14 +6,14 @@
 using namespace std;
 const int n=10;
 
-double lagranz(double X[n],  double Y[n],  double t){
+double GetValueOfLagranz(double X[n],  double Y[n],  double t){
 	double z = 0,  p1,  p2;
-
 	for(int j = 0; j < n; j++)
 	{
 		p1 = 1;
 		p2 = 1;
-		for(int i = 0; i < n; i++){
+		for(int i = 0; i < n; i++)
+		{
 			if (i == j)
 			{
 				p1 = p1 * 1;
@@ -40,6 +40,7 @@ int main()
 
 	int arg;
 	cout << "Enter function argument: "; cin >> arg;
-    cout << "Ln(" << arg << ") = " << lagranz(X, Y, arg) << endl;
+    cout << "Ln(" << arg << ") = " << GetValueOfLagranz(X, Y, arg) << endl;
+	
     return 0;
 }
