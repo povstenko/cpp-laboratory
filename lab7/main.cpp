@@ -97,17 +97,17 @@ void DisplayLevel(Tree *root_d, int &i, int CountLevels)
 
 void DisplayAll(Tree *root)
 {
-	int i = 0;//нужна для сквозной нумерации уровня в рекурсиях.(по крайней мере моя башка не придумала ничего лучше этого костыля)
+	int i = 0;
 	int max_level = 0;
-	CountLevels(root, i, max_level); //---узнаю максимальный уровень дерева
+	CountLevels(root, i, max_level);
 	cout << "max CountLevels = " << max_level << endl;
-	for (int CountLevels = 0; CountLevels <= max_level; CountLevels++) //--цикл поочереди выводит каждый уровень девера, начиная с корняж
+	for (int CountLevels = 0; CountLevels <= max_level; CountLevels++)
 	{
 		if (CountLevels == 0)
 			cout << "[ root ] : ";
 		else
 			cout << "[" << CountLevels << " lvl] : ";
-		DisplayLevel(root, i, CountLevels);//--функция вывода 1 уровня  дерева  
+		DisplayLevel(root, i, CountLevels);  
 		cout << endl;
 	}
 }
